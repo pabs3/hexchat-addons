@@ -18,7 +18,7 @@ def recv_notice_cb(word, word_eol, userdata):
 	to = word[2]
 	if to.startswith('#'):
 		return hexchat.EAT_NONE
-	if nick == 'ChanServ':
+	if nick == 'ChanServ' or (nick == 'polly' and hexchat.get_info('network') == 'hackint'):
 		if word[3].startswith(':[#') and word[3].endswith(']'):
 			context_name = word[3][2:-1]
 		elif word[3].startswith(':+[#') and word[3].endswith(']'):
